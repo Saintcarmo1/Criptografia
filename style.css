@@ -73,6 +73,7 @@ textarea::placeholder {
 
 .botoes {
     background: #7eaac73b;
+    color: rgba(243, 243, 243, 0.836);
     padding: 0.3rem 0.8rem;
     font-size: 0.8vw;
     font-weight: 700;

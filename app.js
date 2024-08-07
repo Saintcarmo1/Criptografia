@@ -2,12 +2,23 @@ const chaves = ["e", "i", "a", "o", "u"];
 const crip = ["enter", "imes", "ai", "ober", "ufat"];
 const areaDeTexto = document.querySelector(".text1");
 const resultado = document.querySelector(".text2");
-const placeholderImage=document.getElementById("placeholder_Image")
+const placeholderImage = document.getElementById("placeholder_Image");
 const historicoList = document.getElementById("historico_List");
 const historicoContainer = document.querySelector(".historico_Container");
 
-// Função para o botão de criptografia.
+// Carregar histórico do localStorage
+function carregarHistorico() {
+    const historico = JSON.parse(localStorage.getItem('historico')) || [];
+    historico.forEach(texto => addHistorico(texto));
+}
 
+// Salvar histórico no localStorage
+function salvarHistorico() {
+    const historico = Array.from(historicoList.children).map(item => item.textContent);
+    localStorage.setItem('historico', JSON.stringify(historico));
+}
+
+// Função para o botão de criptografia
 function criptografar() {
     const segredo = cripto(areaDeTexto.value);
     resultado.value = segredo;
@@ -16,6 +27,7 @@ function criptografar() {
     addHistorico("-------------------------------------");
     areaDeTexto.value = "";
     mostrarResultado();
+    salvarHistorico(); 
 }
 
 // Função de criptografia
@@ -39,8 +51,7 @@ function descripto(textoCripto) {
     return result;
 }
 
-// Função para o botão de descriptografia.
-
+// Função para o botão de descriptografia
 function desencriptar() {
     const resolvida = descripto(areaDeTexto.value);
     resultado.value = resolvida;
@@ -49,30 +60,24 @@ function desencriptar() {
     addHistorico("-------------------------------------");
     areaDeTexto.value = "";
     mostrarResultado();
+    salvarHistorico(); 
 }
 
-// Função para alterar a imagem de place holder para a caixa de texto original.
-
+// Função para alterar a imagem de place holder para a caixa de texto original
 function mostrarResultado() {
     // Esconde a imagem placeholder
     placeholderImage.style.display = "none";
-
     // Exibe a textarea com o resultado
     resultado.style.display = "block";
 }
 
-// Função para executar copiar da caixa de texto.
-
-
+// Função para executar copiar da caixa de texto
 function copiar() {
     resultado.select();
     document.execCommand("copy");
 }
 
-
-
-// Funçoes relacionadas com  funcionalidade do historico de menssagens. 
-
+// Funções relacionadas com funcionalidade do histórico de mensagens
 function addHistorico(texto) {
     const item = document.createElement("div");
     item.className = "historico-item";
@@ -84,8 +89,10 @@ function toggleHistorico() {
     historicoContainer.classList.toggle("active");
 }
 
-
 function limparHistorico() {
-  historicoList.innerHTML = ""; // Limpa todos os itens do histórico
+    historicoList.innerHTML = ""; // Limpa todos os itens do histórico
+    localStorage.removeItem('historico'); // Remove o histórico do localStorage
 }
 
+// Carregar o histórico ao carregar a página
+window.onload = carregarHistorico;
