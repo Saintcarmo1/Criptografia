@@ -98,6 +98,7 @@ textarea::placeholder {
 
 .historico_Content {
     color: rgba(243, 243, 243, 0.836);
+    font-weight: 700;
     font-size: 0.8vw;
     margin-top: 0.5rem;
 }

@@ -22,8 +22,8 @@ function salvarHistorico() {
 function criptografar() {
     const segredo = cripto(areaDeTexto.value);
     resultado.value = segredo;
-    addHistorico("Texto Original: " + areaDeTexto.value);
-    addHistorico("Texto Criptografado: " + segredo);
+    addHistorico("Texto Original:  " + areaDeTexto.value);
+    addHistorico("Texto Criptografado:  " + segredo);
     addHistorico("-------------------------------------");
     areaDeTexto.value = "";
     mostrarResultado();
@@ -55,8 +55,8 @@ function descripto(textoCripto) {
 function desencriptar() {
     const resolvida = descripto(areaDeTexto.value);
     resultado.value = resolvida;
-    addHistorico("Texto Original: " + areaDeTexto.value);
-    addHistorico("Texto Descriptografado: " + resolvida);
+    addHistorico("Texto Original:  " + areaDeTexto.value);
+    addHistorico("Texto Descriptografado:  " + resolvida);
     addHistorico("-------------------------------------");
     areaDeTexto.value = "";
     mostrarResultado();
