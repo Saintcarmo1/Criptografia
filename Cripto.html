@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="site">
+        <div>
+            <textarea class="text1" placeholder="Digite seu texto....."></textarea>
+            <h5 class="Aviso">Apenas letras minúsculas e sem acento.</h5>
+            <button onclick="criptografar()" class="botoes">criptografar</button>
+            <button onclick="desencriptar()" class="botoes">descriptografar</button>
+        </div>
+
+        <div >
+            <textarea class="text2" placeholder="sem nenhum resultado"></textarea>
+            <h5 class="Aviso">Para copiar a menssagem basta clicar no botão abaixo.</h5>
+
+            <button onclick="copiar()" class="botoes">Copiar</button>
+        </div>
+
+ <!-- Seção do histórico retrátil -->
+    <div class="historico-container">
+        <div class="historico-content" id="historico-content">
+            <h3>Histórico</h3>
+            <div class="historico-list" id="historico-list"></div>
+            <button class="botoes" onclick="limparHistorico()">Limpar Histórico</button>
+
+        </div>
+
+    </div>
+        
+    </main>
+
+
+<footer class="f">
+
+    Programa Elaborado por: Caio Martins 2024
+ </footer>
+
+<script src="final.js" defer ></script>
+</body>
+</html>
