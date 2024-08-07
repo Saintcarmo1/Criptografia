@@ -5,6 +5,7 @@ const resultado = document.querySelector(".text2");
 const placeholderImage = document.getElementById("placeholder_Image");
 const historicoList = document.getElementById("historico_List");
 const historicoContainer = document.querySelector(".historico_Container");
+const aviso = document.querySelector(".Aviso");
 
 // Carregar histórico do localStorage
 function carregarHistorico() {
@@ -18,16 +19,27 @@ function salvarHistorico() {
     localStorage.setItem('historico', JSON.stringify(historico));
 }
 
+// Função para validar texto
+function validarTexto(texto) {
+    const regex = /^[a-z\s]*$/; // Apenas letras minúsculas e espaços
+    return regex.test(texto);
+}
+
 // Função para o botão de criptografia
 function criptografar() {
-    const segredo = cripto(areaDeTexto.value);
+    const texto = areaDeTexto.value;
+    if (!validarTexto(texto)) {
+        alert("Por favor, use apenas letras minúsculas e sem acentuação.");
+        return;
+    }
+    const segredo = cripto(texto);
     resultado.value = segredo;
-    addHistorico("Texto Original:  " + areaDeTexto.value);
-    addHistorico("Texto Criptografado:  " + segredo);
+    addHistorico("Texto Original: " + texto);
+    addHistorico("Texto Criptografado: " + segredo);
     addHistorico("-------------------------------------");
     areaDeTexto.value = "";
     mostrarResultado();
-    salvarHistorico(); 
+    salvarHistorico(); // Salvar após adicionar ao histórico
 }
 
 // Função de criptografia
@@ -53,14 +65,19 @@ function descripto(textoCripto) {
 
 // Função para o botão de descriptografia
 function desencriptar() {
-    const resolvida = descripto(areaDeTexto.value);
+    const texto = areaDeTexto.value;
+    if (!validarTexto(texto)) {
+        alert("Por favor, use apenas letras minúsculas e sem acentuação.");
+        return;
+    }
+    const resolvida = descripto(texto);
     resultado.value = resolvida;
-    addHistorico("Texto Original:  " + areaDeTexto.value);
-    addHistorico("Texto Descriptografado:  " + resolvida);
+    addHistorico("Texto Original: " + texto);
+    addHistorico("Texto Descriptografado: " + resolvida);
     addHistorico("-------------------------------------");
     areaDeTexto.value = "";
     mostrarResultado();
-    salvarHistorico(); 
+    salvarHistorico(); // Salvar após adicionar ao histórico
 }
 
 // Função para alterar a imagem de place holder para a caixa de texto original
