@@ -28,23 +28,41 @@ body {
 textarea::placeholder {
     color: rgb(226, 43, 43);
     font-size: 32px;
+
 }
 
-.text1, .text2 {
+.placeholder-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+.text1 {
     width: 534px;
     height: 400px;
     resize: none;
-    border: none;
     font-size: 32px;
     color: rgb(226, 43, 43);
-}
-
-.text1 {
+    background-size: contain; /* Ajusta a imagem ao tamanho da caixa */
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 10px; /* Espaço interno para o texto */
     background-color: #42414156;
 }
 
 .text2 {
+    width: 534px;
+    height: 400px;
+    resize: none;
+    font-size: 15px;
+    color: rgb(226, 43, 43);
+    background-size: contain; /* Ajusta a imagem ao tamanho da caixa */
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 10px; /* Espaço interno para o texto */
     background-color: #22202056;
+    display: none; /* Esconde inicialmente */
 }
 
 .Aviso{

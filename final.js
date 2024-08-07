@@ -2,16 +2,20 @@ const chaves = ["e", "i", "a", "o", "u"];
 const crip = ["enter", "imes", "ai", "ober", "ufat"];
 const areaDeTexto = document.querySelector(".text1");
 const resultado = document.querySelector(".text2");
+const placeholderImage=document.getElementById("placeholder-image")
 const historicoList = document.getElementById("historico-list");
 const historicoContainer = document.querySelector(".historico-container");
+
+// Função para o botão de criptografia.
 
 function criptografar() {
     const segredo = cripto(areaDeTexto.value);
     resultado.value = segredo;
     addHistorico("Texto Original: " + areaDeTexto.value);
     addHistorico("Texto Criptografado: " + segredo);
-    addHistorico("-------------------------------------")
+    addHistorico("-------------------------------------");
     areaDeTexto.value = "";
+    mostrarResultado();
 }
 
 // Função de criptografia
@@ -35,19 +39,39 @@ function descripto(textoCripto) {
     return result;
 }
 
+// Função para o botão de descriptografia.
+
 function desencriptar() {
     const resolvida = descripto(areaDeTexto.value);
     resultado.value = resolvida;
     addHistorico("Texto Original: " + areaDeTexto.value);
     addHistorico("Texto Descriptografado: " + resolvida);
-    addHistorico("-------------------------------------")
+    addHistorico("-------------------------------------");
     areaDeTexto.value = "";
+    mostrarResultado();
 }
+
+// Função para alterar a imagem de place holder para a caixa de texto original.
+
+function mostrarResultado() {
+    // Esconde a imagem placeholder
+    placeholderImage.style.display = "none";
+
+    // Exibe a textarea com o resultado
+    resultado.style.display = "block";
+}
+
+// Função para executar copiar da caixa de texto.
+
 
 function copiar() {
     resultado.select();
     document.execCommand("copy");
 }
+
+
+
+// Funçoes relacionadas com  funcionalidade do historico de menssagens. 
 
 function addHistorico(texto) {
     const item = document.createElement("div");
@@ -64,3 +88,4 @@ function toggleHistorico() {
 function limparHistorico() {
   historicoList.innerHTML = ""; // Limpa todos os itens do histórico
 }
+
