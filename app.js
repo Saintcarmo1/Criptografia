@@ -2,9 +2,9 @@ const chaves = ["e", "i", "a", "o", "u"];
 const crip = ["enter", "imes", "ai", "ober", "ufat"];
 const areaDeTexto = document.querySelector(".text1");
 const resultado = document.querySelector(".text2");
-const placeholderImage=document.getElementById("placeholder-image")
-const historicoList = document.getElementById("historico-list");
-const historicoContainer = document.querySelector(".historico-container");
+const placeholderImage=document.getElementById("placeholder_Image")
+const historicoList = document.getElementById("historico_List");
+const historicoContainer = document.querySelector(".historico_Container");
 
 // Função para o botão de criptografia.
 
