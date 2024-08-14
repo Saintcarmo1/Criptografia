@@ -81,6 +81,10 @@ textarea::placeholder {
     margin: 0.3rem;
 }
 
+.botoes:hover{
+    background: #e965653b;
+}
+
 .f {
     color: rgba(243, 243, 243, 0.836);
     text-align: center;
