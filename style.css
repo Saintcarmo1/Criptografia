@@ -10,13 +10,15 @@
 
 html, body {
     height: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     background-color: #e5e5e5;
     background-image: url("Untitled.png");
     background-size: 100% 100%;
-    background-repeat: no-repeat-y-x;
+    background-repeat: no-repeat-y;
     display: flex;
     flex-direction: column;
 }
@@ -31,25 +33,31 @@ body {
     gap: 1rem;
 }
 
-textarea::placeholder {
-    color: rgb(226, 43, 43);
-    font-size: 1.5rem;
+.textarea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.placeholder-image {
-    display: block;
-    width: 50%;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+.textarea-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 900px;
+}
+
+textarea::placeholder {
+    color: rgb(226, 43, 43);
+    font-size: 1rem;
 }
 
 .text1, .text2 {
     width: 80%;
-    max-width: 500px;
+    max-width: 400px;
     height: 30vh;
     resize: none;
-    font-size: 2rem;
+    font-size: 1rem;
     color: rgb(206, 178, 178);
     background-size: contain;
     background-position: center;
@@ -57,7 +65,6 @@ textarea::placeholder {
     padding: 0.5rem;
     background-color: #42414156;
     margin-bottom: 1rem;
-    gap: 82px;
 }
 
 .text2 {
@@ -67,9 +74,9 @@ textarea::placeholder {
 
 .Aviso {
     color: rgba(243, 243, 243, 0.836);
-    font-size: 0.8vw;
+    font-size: 0.8rem;
     text-align: center;
-    margin-bottom: 0.3rem;
+    margin-bottom: 1rem;
 }
 
 .botoes {
@@ -82,7 +89,7 @@ textarea::placeholder {
     margin: 0.3rem;
 }
 
-.botoes:hover{
+.botoes:hover {
     background: #e965653b;
 }
 
@@ -113,13 +120,19 @@ textarea::placeholder {
     margin-bottom: 0.3rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     .site {
         flex-direction: row;
         justify-content: space-around;
     }
 
     .text1, .text2 {
-        height: 35vh;
+        height: 40vh;
+        width: 40vh;
+    }
+
+    .Aviso {
+        font-size: 1vw;
+        margin-bottom: 0.3rem;
     }
 }
